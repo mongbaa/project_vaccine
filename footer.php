@@ -34,6 +34,7 @@
 
 		<!-- Custom JS files -->
 		<script src="assets/js/custom.js"></script>
+		<script src="assets/js/validations.js"></script>
 	</body>
 
 </html>

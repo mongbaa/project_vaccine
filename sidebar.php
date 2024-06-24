@@ -11,12 +11,24 @@
 <!-- Sidebar menu starts -->
 <div class="sidebarMenuScroll">
     <ul class="sidebar-menu">
+
+
         <li>
             <a href="index.php">
                 <i class="bi bi-pie-chart"></i>
                 <span class="menu-text">หน้าหลัก</span>
             </a>
         </li>
+
+        <li>
+            <a href="student.php">
+                <i class="bi bi-pie-chart"></i>
+                <span class="menu-text">ข้อมูลนักเรียน</span>
+            </a>
+        </li>
+
+
+
      
         
     </ul>

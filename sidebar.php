@@ -28,9 +28,16 @@
         </li>
 
 
+        <li>
+            <a href="room.php">
+                <i class="bi bi-pie-chart"></i>
+                <span class="menu-text">ข้อมูลห้อง</span>
+            </a>
+        </li>
 
-     
-        
+
+
+
     </ul>
 </div>
 <!-- Sidebar menu ends -->

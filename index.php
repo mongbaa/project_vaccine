@@ -22,24 +22,20 @@
 								<div class="card mb-3">
 									<div class="card-body">
 
-<?php
-include "config.inc.php";
 
+											<?php
+											include "config.inc.php";
+											$sql = "SHOW TABLES FROM db_project_vaccine";
+											$query = $conn->query($sql);
+											while ($result = $query->fetch_assoc())
+											{
+											$Tables = $result["Tables_in_db_project_vaccine"];
 
-$sql = "SHOW TABLES FROM db_project_vaccine";
-$query = $conn->query($sql);
-while ($result = $query->fetch_assoc())
-{
-$Tables = $result["Tables_in_db_project_vaccine"];
+											echo  $Tables;
+											echo  "<br>";
+											}
 
-echo  $Tables;
-echo  "<br>";
-}
-
-
-?>
-
-
+											?>
 
 
 									</div>

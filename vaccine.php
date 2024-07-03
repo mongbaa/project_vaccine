@@ -8,7 +8,7 @@
             <i class="bi bi-house lh-1"></i>
             <a href="index.php" class="text-decoration-none">หน้าหลัก</a>
         </li>
-        <li class="breadcrumb-item" aria-current="page"> นักเรียน </li>
+        <li class="breadcrumb-item" aria-current="page"> วัคซีน </li>
     </ol>
     <div class="ms-auto d-lg-flex d-none flex-row">
     </div>
@@ -25,7 +25,7 @@
 
 
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        เพิ่มข้อมูลนักเรียน
+                        เพิ่มข้อมูลวัคซีน
                     </button>
 
                     <!-- Modal -->
@@ -37,7 +37,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">
-                                            เพิ่มข้อมูลนักเรียน
+                                            เพิ่มข้อมูลวัคซีน
                                         </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
@@ -46,94 +46,71 @@
 
                                         <div class="row g-3">
 
-                                            <div class="col-md-12">
-                                                <label for="validationCustomUsername" class="form-label"> ห้อง </label>
+                                           <div class="col-md-12">
+                                                <label for="validationCustomUsername" class="form-label"> รหัสวัคซีน</label>
                                                 <div class="input-group has-validation">
-                                                        <select name="room_id" id="room_id" class="form-select" required>
-                                                            <option value="">กรุณาเลือก</option>
-                                                            <?php
-                                                            include "config.inc.php";
-                                                            $sql_room = " SELECT * FROM tbl_room ORDER BY room_id DESC ";
-                                                            $query_room = $conn->query($sql_room);
-                                                            while ($result_room = $query_room->fetch_assoc()) {
-                                                            ?>
-                                                                <option value="<?php echo $result_room['room_id'];?>"><?php echo $result_room['room_name'];?></option>
-                                                            <?php  } $conn->close();  ?>
-                                                            </select>
+                                                    <input type="text" name="vaccine_no" class="form-control"
+                                                        id="validationCustomUsername"
+                                                        aria-describedby="inputGroupPrepend" required />
                                                     <div class="invalid-feedback">
-                                                        กรุณาเลือก ห้อง
+                                                        กรุณากรอก รหัสวัคซีน
                                                     </div>
                                                 </div>
                                             </div>
 
 
-
-
                                             <div class="col-md-12">
-                                                <label for="validationCustomUsername" class="form-label"> ชื่อ</label>
+                                                <label for="validationCustomUsername" class="form-label"> ชื่อวัคซีน</label>
                                                 <div class="input-group has-validation">
-                                                    <input type="text" name="student_name" class="form-control"
+                                                    <input type="text" name="vaccine_name" class="form-control"
                                                         id="validationCustomUsername"
                                                         aria-describedby="inputGroupPrepend" required />
                                                     <div class="invalid-feedback">
-                                                        กรุณากรอก ชื่อ
+                                                        กรุณากรอก ชื่อวัคซีน
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-12">
                                                 <label for="validationCustomUsername" class="form-label">
-                                                    นามสกุล</label>
+                                                    รายละเอียด</label>
                                                 <div class="input-group has-validation">
-                                                    <input type="text" name="student_last" class="form-control"
+                                                    <input type="text" name="vaccine_detail" class="form-control"
                                                         id="validationCustomUsername"
                                                         aria-describedby="inputGroupPrepend" required />
                                                     <div class="invalid-feedback">
-                                                        กรุณากรอก นามสกุล
+                                                        กรุณากรอก รายละเอียด
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-12">
-                                                <label for="validationCustomUsername" class="form-label"> ชื่อเล่น
+                                                <label for="validationCustomUsername" class="form-label"> ช่วงอายุเริ่มต้น
                                                 </label>
                                                 <div class="input-group has-validation">
-                                                    <input type="text" name="student_nickname" class="form-control"
+                                                    <input type="number" name="vaccine_age_start" class="form-control"
                                                         id="validationCustomUsername"
-                                                        aria-describedby="inputGroupPrepend" required />
+                                                        aria-describedby="inputGroupPrepend"   step="0.01" required />
                                                     <div class="invalid-feedback">
-                                                        กรุณากรอก ชื่อเล่น
+                                                        กรุณากรอก ช่วงอายุเริ่มต้น
                                                     </div>
                                                 </div>
                                             </div>
 
 
                                             <div class="col-md-12">
-                                                <label for="validationCustomUsername" class="form-label"> วันเดือนปีเกิด
+                                                <label for="validationCustomUsername" class="form-label"> ช่วงอายุสิ้นสุด
                                                 </label>
                                                 <div class="input-group has-validation">
-                                                    <input type="date" name="student_bd" class="form-control"
+                                                    <input type="number" name="vaccine_age_end" class="form-control"
                                                         id="validationCustomUsername"
-                                                        aria-describedby="inputGroupPrepend" required />
+                                                        aria-describedby="inputGroupPrepend"   step="0.01"  required />
                                                     <div class="invalid-feedback">
-                                                        กรุณากรอก วันเดือนปีเกิด
+                                                        กรุณากรอก ช่วงอายุสิ้นสุด
                                                     </div>
                                                 </div>
                                             </div>
 
-
-
-                                            <div class="col-md-12">
-                                                <label for="validationCustomUsername" class="form-label"> รูปภาพ</label>
-                                                <div class="input-group has-validation">
-                                                    <input type="file" name="student_img" class="form-control"
-                                                        id="validationCustomUsername"
-                                                        aria-describedby="inputGroupPrepend" required />
-                                                    <div class="invalid-feedback">
-                                                        กรุณากรอก ภาพ
-                                                    </div>
-                                                </div>
-                                            </div>
 
 
 
@@ -145,8 +122,8 @@
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                             Close
                                         </button>
-                                        <button name="add_student" class="btn btn-primary" type="submit"
-                                            value="add_student">
+                                        <button name="add_vaccine" class="btn btn-primary" type="submit"
+                                            value="add_vaccine">
                                             Submit form
                                         </button>
                                     </div>
@@ -158,113 +135,86 @@
                     <?php
 
 
-    if(!empty($_POST['del_student'])){
+    if(!empty($_POST['del_vaccine'])){
 
-        $student_id = $_POST['student_id'];
+        $vaccine_id = $_POST['vaccine_id'];
 
         include "config.inc.php";
-        if (isset($_POST['student_id'])  && !empty($_POST['student_id'])) {
+        if (isset($_POST['vaccine_id'])  && !empty($_POST['vaccine_id'])) {
 
-        $sql_del = "DELETE FROM tbl_student WHERE student_id = $student_id";
+        $sql_del = "DELETE FROM tbl_vaccine WHERE vaccine_id = $vaccine_id";
         $conn->query($sql_del);
 
         }
         $conn -> close();
 
         echo "<script type='text/javascript'>";
-        echo "window.location='student.php';";
+        echo "window.location='vaccine.php';";
         echo "</script>";
     }
 
 
 
 
-  if(!empty($_POST['add_student'])){
+  if(!empty($_POST['add_vaccine'])){
 
     include "config.inc.php";
 
-    $student_name  = $_POST['student_name'];
 
-
-    if (isset($_POST['student_name'])  && !empty($_POST['student_name'])) {
-        $student_name = $conn->real_escape_string($_POST['student_name']);
+    if (isset($_POST['vaccine_no'])  && !empty($_POST['vaccine_no'])) {
+        $vaccine_no = $conn->real_escape_string($_POST['vaccine_no']);
     } else {
-        $student_name = '';
-    }
-
-    if (isset($_POST['student_last'])  && !empty($_POST['student_last'])) {
-        $student_last = $conn->real_escape_string($_POST['student_last']);
-    } else {
-        $student_last = '';
-    }
-
-    if (isset($_POST['student_nickname'])  && !empty($_POST['student_nickname'])) {
-        $student_nickname = $conn->real_escape_string($_POST['student_nickname']);
-    } else {
-        $student_nickname = '';
-    }
-
-    if (isset($_POST['student_bd'])  && !empty($_POST['student_bd'])) {
-        $student_bd = $conn->real_escape_string($_POST['student_bd']);
-    } else {
-        $student_bd = '';
+        $vaccine_no = '';
     }
 
 
-    if (isset($_POST['room_id'])  && !empty($_POST['room_id'])) {
-        $room_id = $conn->real_escape_string($_POST['room_id']);
+    if (isset($_POST['vaccine_name'])  && !empty($_POST['vaccine_name'])) {
+        $vaccine_name = $conn->real_escape_string($_POST['vaccine_name']);
     } else {
-        $room_id = 0;
+        $vaccine_name = '';
     }
 
+    if (isset($_POST['vaccine_detail'])  && !empty($_POST['vaccine_detail'])) {
+        $vaccine_detail = $conn->real_escape_string($_POST['vaccine_detail']);
+    } else {
+        $vaccine_detail = '';
+    }
+
+    if (isset($_POST['vaccine_age_start'])  && !empty($_POST['vaccine_age_start'])) {
+        $vaccine_age_start = $conn->real_escape_string($_POST['vaccine_age_start']);
+    } else {
+        $vaccine_age_start = '';
+    }
+
+    if (isset($_POST['vaccine_age_end'])  && !empty($_POST['vaccine_age_end'])) {
+        $vaccine_age_end = $conn->real_escape_string($_POST['vaccine_age_end']);
+    } else {
+        $vaccine_age_end = '';
+    }
+
+    $vaccine_status = 1;
 
 
-    if (isset($_POST['student_id'])  && !empty($_POST['student_id'])) {
+    if (isset($_POST['vaccine_id'])  && !empty($_POST['vaccine_id'])) {
 
-        $student_id = $_POST['student_id'];
-
-        if ($_FILES["student_img"]["name"] != "") // เช็คค่ารับไฟล์ ถ้ามีไฟล์ส่งมาให้ทำตามเงือนไขต่อไป
-        {
-            $new_name = "student_img_" . date('Ymdhis') . ".WebP";
-            if (move_uploaded_file($_FILES["student_img"]["tmp_name"], "student_img/" . $new_name)) //อัพไฟล์ขึ้น
-            {
-                $student_img = $new_name;
-
-                $student_img_unlink = $_POST['student_img_s'];
-                if(!empty($_POST['student_img_s'])){
-                 @unlink("student_img/$student_img_unlink");
-                }
-            }
-        } else {
-                $student_img = $_POST['student_img_s'];
-        }
+        $vaccine_id = $_POST['vaccine_id'];
 
 
-        $sql_update = "UPDATE tbl_student SET
-                        room_id = '$room_id',
-                        student_name = '$student_name',
-                        student_last = '$student_last',
-                        student_nickname = '$student_nickname',
-                        student_bd = '$student_bd',
-                        student_img = '$student_img'
-                        WHERE tbl_student.student_id = $student_id";
+        $sql_update = "UPDATE tbl_vaccine SET
+                        vaccine_no = '$vaccine_no',
+                        vaccine_name = '$vaccine_name',
+                        vaccine_detail = '$vaccine_detail',
+                        vaccine_age_start = '$vaccine_age_start',
+                        vaccine_age_end = '$vaccine_age_end',
+                        vaccine_status = '$vaccine_status'
+                        WHERE tbl_vaccine.vaccine_id = $vaccine_id";
         $conn->query($sql_update);
 
     }else{
 
-        if ($_FILES["student_img"]["name"] != "") // เช็คค่ารับไฟล์ ถ้ามีไฟล์ส่งมาให้ทำตามเงือนไขต่อไป
-        {
-            $new_name = "student_img_" . date('Ymdhis') . ".WebP";
-            if (move_uploaded_file($_FILES["student_img"]["tmp_name"], "student_img/" . $new_name)) //อัพไฟล์ขึ้น
-            {
-                $student_img = $new_name;
-            }
-        } else {
-                $student_img = '';
-        }
 
-        $sql_in = "INSERT INTO tbl_student  (student_id, room_id, student_name, student_last, student_nickname, student_bd, student_img, student_status)
-                                     VALUES (null, '$room_id', '$student_name', '$student_last', '$student_nickname', '$student_bd', '$student_img', 1 )";
+        $sql_in = "INSERT INTO tbl_vaccine  (vaccine_id, vaccine_no, vaccine_name, vaccine_detail, vaccine_age_start, vaccine_age_end,  vaccine_status)
+                                     VALUES (null, '$vaccine_no', '$vaccine_name', '$vaccine_detail', '$vaccine_age_start', '$vaccine_age_end', '$vaccine_status' )";
         $conn->query($sql_in);
 
 
@@ -278,7 +228,7 @@
 
 
     echo "<script type='text/javascript'>";
-    echo "window.location='student.php';";
+    echo "window.location='vaccine.php';";
     echo "</script>";
 
 
@@ -296,65 +246,46 @@
                             <div class="card mb-3">
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table name="myTable" id="myTable" class="table align-middle table-hover m-0">
+                                        <table class="table align-middle table-hover m-0">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">ลำดับที่</th>
-                                                    <th scope="col"> รูป </th>
-                                                    <th scope="col">ห้อง</th>
-                                                    <th scope="col">ชื่อ - สกุล</th>
-                                                    <th scope="col">ชื่อเล่น </th>
-                                                    <th scope="col">วันเดือนปีเกิด</th>
+                                                    <th scope="col">รหัสวัคซีน </th>
+                                                    <th scope="col">ชื่อวัคซีน</th>
+                                                    <th scope="col">ช่วงอายุเริ่มต้น </th>
+                                                    <th scope="col">ช่วงอายุสิ้นสุด</th>
                                                     <th scope="col">จัดการข้อมูล</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
                                         include "config.inc.php";
-                                                $sql = "SELECT * FROM tbl_student as s
-                                                        INNER JOIN  tbl_room as r on s.room_id = r.room_id
-                                                        ORDER BY s.student_id DESC ";
+                                        $sql = "SELECT * FROM tbl_vaccine ORDER BY vaccine_id DESC ";
                                         $query = $conn->query($sql);
                                         $i = 0;
                                         while ($result = $query->fetch_assoc()) {
                                         $i++;
-                                        $student_id = $result['student_id'];
+                                        $vaccine_id = $result['vaccine_id'];
                                         ?>
 
                                                 <tr>
                                                     <td> <?php echo $i;?> </td>
-                                                    <td scope="row">
-
-                                                        <?php if(!empty($result['student_img'])){?>
-                                                        <img class="rounded-circle img-3x me-2"
-                                                            src="student_img/<?php echo $result['student_img'];?>"
-                                                            alt="Bootstrap Gallery" />
-                                                        <?php } ?>
-
-                                                    </td>
-                                                    <td><?php echo $result['room_name'];?></td>
-                                                    <td><?php echo $result['student_name'];?>
-                                                        <?php echo $result['student_last'];?></td>
-                                                    <td><?php echo $result['student_nickname'];?></td>
-                                                    <td><?php echo $result['student_bd'];?></td>
+                                                    <td><?php echo $result['vaccine_no'];?></td>
+                                                    <td><?php echo $result['vaccine_name'];?>
+                                                        <?php echo $result['vaccine_detail'];?></td>
+                                                    <td><?php echo $result['vaccine_age_start'];?></td>
+                                                    <td><?php echo $result['vaccine_age_end'];?></td>
                                                     <td>
 
                                                         <button type="button" class="btn btn-info btn-sm"
-                                                            data-bs-toggle="modal" data-bs-target="#EditModal<?php echo $student_id;?>">
+                                                            data-bs-toggle="modal" data-bs-target="#EditModal<?php echo $vaccine_id;?>">
                                                             <i class="bi bi-pencil"></i>
                                                         </button>
 
                                                         <button type="button" class="btn btn-danger btn-sm"
-                                                            data-bs-toggle="modal" data-bs-target="#DelModal<?php echo $student_id;?>">
+                                                            data-bs-toggle="modal" data-bs-target="#DelModal<?php echo $vaccine_id;?>">
                                                             <i class="bi bi-trash"></i>
                                                         </button>
-
-
-                                                        <a href="add_vaccine_data.php?student_id=<?php echo $result['student_id'];?>" class="btn btn-info btn-sm">
-                                                                <i class="bi bi-pie-chart"></i>
-                                                                [บันทึกข้อมูล]
-                                                        </a>
-
 
                                                     </td>
                                                 </tr>
@@ -362,15 +293,15 @@
 
 
 
-                                                <form name="Edit<?php echo $student_id;?>" method="post" class="row g-3 needs-validation" novalidate  enctype="multipart/form-data">
-                                                    <div class="modal fade" id="EditModal<?php echo $student_id;?>" tabindex="-1"
+                                                <form name="Edit<?php echo $vaccine_id;?>" method="post" class="row g-3 needs-validation" novalidate  enctype="multipart/form-data">
+                                                    <div class="modal fade" id="EditModal<?php echo $vaccine_id;?>" tabindex="-1"
                                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <h5 class="modal-title"
                                                                         id="exampleModalLabel">
-                                                                        แก้ไขข้อมูลนักเรียน <?php echo $student_id;?>
+                                                                        แก้ไขข้อมูลวัคซีน <?php echo $vaccine_id;?>
                                                                     </h5>
                                                                     <button type="button" class="btn-close"
                                                                         data-bs-dismiss="modal"
@@ -378,56 +309,46 @@
                                                                 </div>
                                                                 <div class="modal-body">
 
-                                                                <input name="student_id" type="hidden" value="<?php echo $result['student_id']; ?>" />
+                                                                <input name="vaccine_id" type="hidden" value="<?php echo $result['vaccine_id']; ?>" />
                                                                     <div class="row g-3">
 
 
-
-
-                                                                    <div class="col-md-12">
-                                                                            <label for="validationCustomUsername" class="form-label"> ห้อง </label>
-                                                                            <div class="input-group has-validation">
-                                                                                    <select name="room_id" id="room_id" class="form-select" required>
-                                                                                        <option value="">กรุณาเลือก</option>
-                                                                                        <?php
-                                                                                        $room_id =  $result['room_id']; 
-                                                                                        $sql_room = " SELECT * FROM tbl_room ORDER BY room_id DESC ";
-                                                                                        $query_room = $conn->query($sql_room);
-                                                                                        while ($result_room = $query_room->fetch_assoc()) {
-                                                                                        ?>
-                                                                                            <option value="<?php echo $result_room['room_id'];?>"
-
-                                                                                            <?php if (!(strcmp($result_room['room_id'], $room_id))) {
-                                                                                            echo "selected=\"selected\"";
-                                                                                            } ?>>
-
-                                                                                            <?php echo $result_room['room_name'];?></option>
-                                                                                        <?php  } ?>
-                                                                                        </select>
+                                                                        <div class="col-md-12">
+                                                                            <label
+                                                                                for="validationCustomUsername"
+                                                                                class="form-label"> รหัสวัคซีน</label>
+                                                                            <div
+                                                                                class="input-group has-validation">
+                                                                                <input type="text"
+                                                                                    name="vaccine_no"
+                                                                                    class="form-control"
+                                                                                    id="validationCustomUsername"
+                                                                                    aria-describedby="inputGroupPrepend"
+                                                                                    value = "<?php echo $result['vaccine_no'];?>"
+                                                                                    required />
                                                                                 <div class="invalid-feedback">
-                                                                                    กรุณาเลือก ห้อง
+                                                                                    กรุณากรอก รหัสวัคซีน
                                                                                 </div>
                                                                             </div>
                                                                         </div>
 
 
 
-
                                                                         <div class="col-md-12">
                                                                             <label
                                                                                 for="validationCustomUsername"
-                                                                                class="form-label"> ชื่อ</label>
+                                                                                class="form-label"> ชื่อวัคซีน</label>
                                                                             <div
                                                                                 class="input-group has-validation">
                                                                                 <input type="text"
-                                                                                    name="student_name"
+                                                                                    name="vaccine_name"
                                                                                     class="form-control"
                                                                                     id="validationCustomUsername"
                                                                                     aria-describedby="inputGroupPrepend"
-                                                                                    value = "<?php echo $result['student_name'];?>"
+                                                                                    value = "<?php echo $result['vaccine_name'];?>"
                                                                                     required />
                                                                                 <div class="invalid-feedback">
-                                                                                    กรุณากรอก ชื่อ
+                                                                                    กรุณากรอก ชื่อวัคซีน
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -436,18 +357,18 @@
                                                                             <label
                                                                                 for="validationCustomUsername"
                                                                                 class="form-label">
-                                                                                นามสกุล</label>
+                                                                                รายละเอียด</label>
                                                                             <div
                                                                                 class="input-group has-validation">
                                                                                 <input type="text"
-                                                                                    name="student_last"
+                                                                                    name="vaccine_detail"
                                                                                     class="form-control"
                                                                                     id="validationCustomUsername"
                                                                                     aria-describedby="inputGroupPrepend"
-                                                                                    value = "<?php echo $result['student_last'];?>"
+                                                                                    value = "<?php echo $result['vaccine_detail'];?>"
                                                                                     required />
                                                                                 <div class="invalid-feedback">
-                                                                                    กรุณากรอก นามสกุล
+                                                                                    กรุณากรอก รายละเอียด
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -455,19 +376,20 @@
                                                                         <div class="col-md-12">
                                                                             <label
                                                                                 for="validationCustomUsername"
-                                                                                class="form-label"> ชื่อเล่น
+                                                                                class="form-label"> ช่วงอายุเริ่มต้น
                                                                             </label>
                                                                             <div
                                                                                 class="input-group has-validation">
-                                                                                <input type="text"
-                                                                                    name="student_nickname"
+                                                                                <input type="number"
+                                                                                    name="vaccine_age_start"
                                                                                     class="form-control"
                                                                                     id="validationCustomUsername"
+                                                                                    step="0.01"
                                                                                     aria-describedby="inputGroupPrepend"
-                                                                                    value = "<?php echo $result['student_nickname'];?>"
+                                                                                    value = "<?php echo $result['vaccine_age_start'];?>"
                                                                                     required />
                                                                                 <div class="invalid-feedback">
-                                                                                    กรุณากรอก ชื่อเล่น
+                                                                                    กรุณากรอก ช่วงอายุเริ่มต้น
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -477,44 +399,23 @@
                                                                             <label
                                                                                 for="validationCustomUsername"
                                                                                 class="form-label">
-                                                                                วันเดือนปีเกิด </label>
+                                                                                ช่วงอายุสิ้นสุด </label>
                                                                             <div
                                                                                 class="input-group has-validation">
-                                                                                <input type="date"
-                                                                                    name="student_bd"
+                                                                                <input type="number"
+                                                                                    name="vaccine_age_end"
                                                                                     class="form-control"
                                                                                     id="validationCustomUsername"
+                                                                                    step="0.01"
                                                                                     aria-describedby="inputGroupPrepend"
-                                                                                    value = "<?php echo $result['student_bd'];?>"
+                                                                                    value = "<?php echo $result['vaccine_age_end'];?>"
                                                                                     required />
                                                                                 <div class="invalid-feedback">
-                                                                                    กรุณากรอก วันเดือนปีเกิด
+                                                                                    กรุณากรอก ช่วงอายุสิ้นสุด
                                                                                 </div>
                                                                             </div>
                                                                         </div>
 
-
-
-                                                                        <div class="col-md-12">
-                                                                            <label
-                                                                                for="validationCustomUsername"
-                                                                                class="form-label">
-                                                                                รูปภาพ</label>
-                                                                            <div
-                                                                                class="input-group has-validation">
-                                                                                <input type="file"
-                                                                                    name="student_img"
-                                                                                    class="form-control"
-                                                                                    id="validationCustomUsername"
-                                                                                    aria-describedby="inputGroupPrepend"
-                                                                                    />
-                                                                                <input name="student_img_s" type="hidden" value="<?php echo $result['student_img']; ?>" />
-
-                                                                                <div class="invalid-feedback">
-                                                                                    กรุณากรอก ภาพ
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
 
                                                                     </div>
 
@@ -525,9 +426,9 @@
                                                                         data-bs-dismiss="modal">
                                                                         Close
                                                                     </button>
-                                                                    <button name="add_student"
+                                                                    <button name="add_vaccine"
                                                                         class="btn btn-primary" type="submit"
-                                                                        value="add_student">
+                                                                        value="add_vaccine">
                                                                         Submit form
                                                                     </button>
                                                                 </div>
@@ -538,22 +439,22 @@
 
 
 
-                                                <form name="Del<?php echo $student_id;?>" method="post" class="row g-3 needs-validation" novalidate  enctype="multipart/form-data">
-                                                    <div class="modal fade" id="DelModal<?php echo $student_id;?>" tabindex="-1"
+                                                <form name="Del<?php echo $vaccine_id;?>" method="post" class="row g-3 needs-validation" novalidate  enctype="multipart/form-data">
+                                                    <div class="modal fade" id="DelModal<?php echo $vaccine_id;?>" tabindex="-1"
                                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header bg-danger">
                                                                     <h5 class="modal-title"
                                                                         id="exampleModalLabel">
-                                                                       <font color = '#fff'> ลบข้อมูลนักเรียน (<?php echo $student_id;?>) </font>
+                                                                       <font color = '#fff'> ลบข้อมูลวัคซีน (<?php echo $vaccine_id;?>) </font>
                                                                     </h5>
                                                                     <button type="button" class="btn-close"
                                                                         data-bs-dismiss="modal"
                                                                         aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                <input name="student_id" type="hidden" value="<?php echo $result['student_id']; ?>" /> 
+                                                                <input name="vaccine_id" type="hidden" value="<?php echo $result['vaccine_id']; ?>" /> 
                                                                     <h2> ยืนยันการลบอีกครั้ง </h2>
                                                                 </div>
                                                                 <div class="modal-footer">
@@ -562,9 +463,9 @@
                                                                         data-bs-dismiss="modal">
                                                                         ยกเลิก
                                                                     </button>
-                                                                    <button name="del_student"
+                                                                    <button name="del_vaccine"
                                                                         class="btn btn-danger" type="submit"
-                                                                        value="del_student">
+                                                                        value="del_vaccine">
                                                                         ยืนยัน
                                                                     </button>
                                                                 </div>
@@ -603,9 +504,3 @@
 
 
 <?php include "footer.php";?>
-
-<script>
-$(document).ready( function () {
-    $('#myTable').DataTable();
-} );
-</script>

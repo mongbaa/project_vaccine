@@ -37,6 +37,34 @@
 
 
 
+        <li>
+            <a href="staff.php">
+                <i class="bi bi-pie-chart"></i>
+                <span class="menu-text">ข้อมูลเจ้าหน้าที่</span>
+            </a>
+        </li>
+
+
+
+        <li>
+            <a href="vaccine.php">
+                <i class="bi bi-pie-chart"></i>
+                <span class="menu-text">ข้อมูลวัคซีน</span>
+            </a>
+        </li>
+
+
+
+        <li>
+            <a href="vaccine_data.php">
+                <i class="bi bi-pie-chart"></i>
+                <span class="menu-text">ข้อมูลการฉีดวัคซีน</span>
+            </a>
+        </li>
+
+
+
+
 
     </ul>
 </div>
